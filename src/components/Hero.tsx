@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
 import ParallaxContainer from './ParallaxContainer';
 
 const Hero = () => {
@@ -74,22 +73,26 @@ const Hero = () => {
         <div ref={addToFloatingRefs} className="absolute w-56 h-56 rounded-full bg-glow-blue/10 blur-3xl bottom-1/4 right-1/4 transition-transform duration-200" />
         <div ref={addToFloatingRefs} className="absolute w-32 h-32 rounded-full bg-glow-pink/10 blur-3xl top-1/3 right-1/3 transition-transform duration-200" />
         
-        {/* Main content */}
-        <div className="glassmorphism rounded-2xl p-8 md:p-12 max-w-4xl mx-auto text-center relative z-10 border-white/30">
-          <div className="space-y-6 backdrop-blur-sm">
-            <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-glow-purple to-glow-blue">
-              Unveil Your Inner Beauty with Our Futuristic Skincare
-            </h1>
-            <p className="text-lg md:text-xl text-white max-w-2xl mx-auto">
-              Our advanced skincare formulas combine cutting-edge technology with natural ingredients to enhance your natural beauty and give you the radiant confidence you deserve.
-            </p>
-            <div className="pt-4">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:scale-105"
-              >
-                Discover Collection
-              </Button>
+        {/* Main content with image and text side by side */}
+        <div className="glassmorphism rounded-2xl p-6 md:p-8 max-w-6xl w-full mx-auto relative z-10 border-white/30">
+          <div className="flex flex-col md:flex-row items-center backdrop-blur-sm gap-6">
+            {/* Text content on the left */}
+            <div className="md:w-1/2 text-left space-y-4">
+              <h1 className="text-3xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-br from-glow-purple to-glow-blue" style={{fontFamily: 'Arial Black, sans-serif'}}>
+                Unveil Your Inner Beauty with Our Futuristic Skincare
+              </h1>
+              <p className="text-lg md:text-xl text-white max-w-2xl">
+                Our advanced skincare formulas combine cutting-edge technology with natural ingredients to enhance your natural beauty and give you the radiant confidence you deserve.
+              </p>
+            </div>
+            
+            {/* Image on the right */}
+            <div className="md:w-1/2">
+              <img 
+                src="https://th.bing.com/th/id/OIP.bgTTSI8qqLrn4cJEpeOtGQHaEh?w=312&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7" 
+                alt="Skincare Product" 
+                className="w-full h-auto rounded-lg shadow-lg object-cover" 
+              />
             </div>
           </div>
         </div>
