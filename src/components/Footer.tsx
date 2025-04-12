@@ -66,20 +66,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-2">Subscribe to our newsletter</h4>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="bg-white/10 border-0 rounded-l-md py-2 px-3 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-glow-purple" 
-                />
-                <button className="bg-glow-purple hover:bg-glow-accent text-white rounded-r-md px-3 text-sm transition-colors">
-                  Subscribe
-                </button>
-              </div>
-            </div>
           </div>
         </div>
         
@@ -98,3 +84,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

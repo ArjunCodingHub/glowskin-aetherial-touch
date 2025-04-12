@@ -39,7 +39,7 @@ const Navbar = () => {
             src="https://i.pinimg.com/474x/e1/d2/c7/e1d2c74465c7a32159486ca595860032.jpg" 
             alt="GlowSkin Logo" 
             className={cn(
-              "h-12 transition-all duration-300 animate-float",
+              "h-12 transition-all duration-300 rounded-full", // Removed animate-float
               scrolled ? "h-10" : "h-12"
             )}
           />
@@ -125,3 +125,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
