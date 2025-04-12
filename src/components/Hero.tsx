@@ -6,6 +6,7 @@ import ParallaxContainer from './ParallaxContainer';
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const floatingElements = useRef<HTMLDivElement[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -31,6 +32,13 @@ const Hero = () => {
     
     document.addEventListener('mousemove', handleMouseMove);
     
+    // Auto-play video when component mounts
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video autoplay prevented:", error);
+      });
+    }
+    
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
@@ -45,10 +53,22 @@ const Hero = () => {
 
   return (
     <div id="home" ref={containerRef} className="relative min-h-screen">
-      <ParallaxContainer
-        bgImage="https://i.pinimg.com/474x/0c/41/fe/0c41fe747d1e058a40608cb48a3abcbc.jpg"
-        className="min-h-screen flex items-center justify-center px-4"
-      >
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video 
+          ref={videoRef}
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="absolute min-w-full min-h-full object-cover"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-applying-cream-to-her-face-32962-large.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+      </div>
+      
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
         {/* Decorative floating elements */}
         <div ref={addToFloatingRefs} className="absolute w-40 h-40 rounded-full bg-glow-purple/10 blur-3xl top-1/4 left-1/4 transition-transform duration-200" />
         <div ref={addToFloatingRefs} className="absolute w-56 h-56 rounded-full bg-glow-blue/10 blur-3xl bottom-1/4 right-1/4 transition-transform duration-200" />
@@ -60,7 +80,7 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-glow-purple to-glow-blue">
               Unveil Your Inner Beauty with Our Futuristic Skincare
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white max-w-2xl mx-auto">
               Our advanced skincare formulas combine cutting-edge technology with natural ingredients to enhance your natural beauty and give you the radiant confidence you deserve.
             </p>
             <div className="pt-4">
@@ -73,7 +93,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </ParallaxContainer>
+      </div>
     </div>
   );
 };

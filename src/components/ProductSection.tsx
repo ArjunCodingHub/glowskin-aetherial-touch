@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface Product {
@@ -145,13 +144,7 @@ const ProductSection = () => {
           ))}
         </Tabs>
         
-        <div className="text-center mt-12">
-          <Button 
-            className="bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:animate-glow"
-          >
-            View All Products
-          </Button>
-        </div>
+        {/* View All Products button removed */}
       </div>
     </div>
   );
