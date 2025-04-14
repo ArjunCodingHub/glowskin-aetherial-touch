@@ -56,19 +56,19 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
       <Hero />
-      <div ref={el => sectionRefs.current[0] = el}>
+      <div ref={el => sectionRefs.current[0] = el} id="info">
         <InfoSection />
       </div>
-      <div ref={el => sectionRefs.current[1] = el}>
+      <div ref={el => sectionRefs.current[1] = el} id="treatment">
         <TreatmentSection />
       </div>
-      <div ref={el => sectionRefs.current[2] = el}>
+      <div ref={el => sectionRefs.current[2] = el} id="product">
         <ProductSection />
       </div>
-      <div ref={el => sectionRefs.current[3] = el}>
+      <div ref={el => sectionRefs.current[3] = el} id="about">
         <AboutSection />
       </div>
-      <div ref={el => sectionRefs.current[4] = el}>
+      <div ref={el => sectionRefs.current[4] = el} id="contact">
         <ContactSection />
       </div>
       <Footer />
