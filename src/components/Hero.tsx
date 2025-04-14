@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import ParallaxContainer from './ParallaxContainer';
 
@@ -36,7 +35,6 @@ const Hero = () => {
       });
     }
     
-    // Add entrance animation for content
     if (contentRef.current) {
       contentRef.current.classList.add('animate-scale');
       setTimeout(() => {
@@ -59,7 +57,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="home" ref={containerRef} className="relative min-h-screen">
+    <div id="home" ref={containerRef} className="relative min-h-screen pt-24 md:pt-32">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video 
           ref={videoRef}
