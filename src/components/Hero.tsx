@@ -39,6 +39,12 @@ const Hero = () => {
     // Add entrance animation for content
     if (contentRef.current) {
       contentRef.current.classList.add('animate-scale');
+      setTimeout(() => {
+        if (contentRef.current) {
+          contentRef.current.classList.add('opacity-100');
+          contentRef.current.classList.remove('opacity-0');
+        }
+      }, 100);
     }
     
     return () => {
