@@ -92,6 +92,7 @@ const ContactSection = () => {
           </p>
         </div>
         
+        {/* Contact Information - Moved above the form */}
         <div className="futuristic-card p-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-center">
@@ -142,7 +143,8 @@ const ContactSection = () => {
           </div>
         </div>
           
-        <div className="futuristic-card p-8 h-full">
+        {/* Contact Form - Now takes full width */}
+        <div className="futuristic-card p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-gray-700">Name</Label>
