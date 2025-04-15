@@ -14,6 +14,7 @@ const ContactSection = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
@@ -31,12 +32,22 @@ const ContactSection = () => {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
+      setIsSuccess(true);
       setFormState({ name: '', email: '', message: '' });
       toast({
         title: "Message Sent!",
         description: "Thank you for contacting us. We'll respond to your inquiry soon.",
       });
+      
+      // Reset success state after 3 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 3000);
     }, 1500);
+    
+    // In a real application, you would send an email to charlesaguchinemerem@gmail.com
+    // For example using a service like EmailJS or a backend API
+    // window.location.href = `mailto:charlesaguchinemerem@gmail.com?subject=Contact from ${formState.name}&body=${formState.message}`;
   };
   
   useEffect(() => {
@@ -87,7 +98,7 @@ const ContactSection = () => {
               <div className="relative glassmorphism rounded-xl overflow-hidden">
                 <img 
                   src="https://i.pinimg.com/474x/3e/80/d0/3e80d0b3a6c5d74f5bbdad095d3f5e41.jpg"
-                  alt="Contact GlowSkin"
+                  alt="Header"
                   className="w-full h-96 object-cover"
                 />
               </div>
@@ -104,7 +115,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Support Hours</h3>
-                  <p className="text-gray-600 text-sm">Monday - Friday: 9AM - 5PM PST</p>
+                  <p className="text-gray-600 text-sm">Monday - Friday: 9AM - 5PM</p>
                 </div>
               </div>
               
@@ -116,7 +127,28 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Email Us</h3>
-                  <p className="text-gray-600 text-sm">support@glowskin.com</p>
+                  <p className="text-gray-600 text-sm">
+                    <a href="mailto:charlesaguchinemerem@gmail.com" className="hover:text-glow-purple">
+                      charlesaguchinemerem@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-glow-purple">
+                    <path d="M2.00401 22L3.35601 17.032C2.46515 15.5049 1.99711 13.768 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.2328 22.0029 8.49667 21.5352 6.97001 20.645L2.00401 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 14.25C9.33333 14.75 10.2 15.75 12 15.75C14.25 15.75 15 14.25 15 14.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-medium">Whatsapp</h3>
+                  <p className="text-gray-600 text-sm">
+                    <a href="https://wa.me/2348025272827" target="_blank" rel="noopener noreferrer" className="hover:text-glow-purple">
+                      +234 802 527 2827
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -167,9 +199,9 @@ const ContactSection = () => {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 hover:shadow-lg transition-all duration-300"
+                className={`w-full bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 hover:shadow-lg transition-all duration-300 ${isSuccess ? 'bg-green-500' : ''}`}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Sending..." : isSuccess ? "Message Sent!" : "Send Message"}
               </Button>
             </form>
           </div>

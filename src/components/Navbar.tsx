@@ -37,14 +37,14 @@ const Navbar = () => {
         <div className="flex items-center">
           <img 
             src="https://i.pinimg.com/474x/e1/d2/c7/e1d2c74465c7a32159486ca595860032.jpg" 
-            alt="GlowSkin Logo" 
+            alt="Charlie's Glow Logo" 
             className={cn(
               "h-12 transition-all duration-300 rounded-full animate-float-enhanced", 
               scrolled ? "h-10" : "h-12"
             )}
           />
           <span className="ml-3 text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-glow-purple to-glow-blue animate-pulse-glow">
-            GlowSkin
+            Charlie's Glow
           </span>
         </div>
 

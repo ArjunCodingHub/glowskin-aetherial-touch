@@ -54,7 +54,7 @@ const AboutSection = () => {
             className="md:col-span-1 glassmorphism rounded-2xl flex flex-col justify-center items-center p-8 md:p-12 opacity-0"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-br from-glow-purple to-glow-blue">
-              Why Choose GlowSkin
+              Why Choose Charlie's Glow
             </h2>
             <div className="mt-8 w-32 h-32 rounded-full bg-gradient-to-br from-glow-purple to-glow-blue p-1">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
