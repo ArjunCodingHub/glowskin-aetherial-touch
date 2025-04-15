@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
+import { Clock, Mail, MessageSquare } from "lucide-react";
 
 const ContactSection = () => {
   const [formState, setFormState] = useState({
@@ -91,44 +92,30 @@ const ContactSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-glow-purple to-glow-blue rounded-xl blur opacity-30"></div>
-              <div className="relative glassmorphism rounded-xl overflow-hidden">
-                <img 
-                  src="https://i.pinimg.com/474x/3e/80/d0/3e80d0b3a6c5d74f5bbdad095d3f5e41.jpg"
-                  alt="Header"
-                  className="w-full h-96 object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="mt-12 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="futuristic-card p-8 h-full">
+            <div className="space-y-8">
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-glow-purple">
-                    <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M12 8L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                  <Clock className="h-6 w-6 text-glow-purple" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Support Hours</h3>
-                  <p className="text-gray-600 text-sm">Monday - Friday: 9AM - 5PM</p>
+                  <h3 className="font-medium text-lg">Support Hours</h3>
+                  <p className="text-gray-600">Monday - Friday: 9AM - 5PM</p>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-glow-purple">
-                    <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                  <Mail className="h-6 w-6 text-glow-purple" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Email Us</h3>
-                  <p className="text-gray-600 text-sm">
-                    <a href="mailto:charlesaguchinemerem@gmail.com" className="hover:text-glow-purple">
+                  <h3 className="font-medium text-lg">Email Us</h3>
+                  <p className="text-gray-600">
+                    <a 
+                      href="mailto:charlesaguchinemerem@gmail.com" 
+                      className="hover:text-glow-purple transition-colors"
+                    >
                       charlesaguchinemerem@gmail.com
                     </a>
                   </p>
@@ -136,25 +123,33 @@ const ContactSection = () => {
               </div>
               
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-glow-purple">
-                    <path d="M2.00401 22L3.35601 17.032C2.46515 15.5049 1.99711 13.768 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.2328 22.0029 8.49667 21.5352 6.97001 20.645L2.00401 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 14.25C9.33333 14.75 10.2 15.75 12 15.75C14.25 15.75 15 14.25 15 14.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                  <MessageSquare className="h-6 w-6 text-glow-purple" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Whatsapp</h3>
-                  <p className="text-gray-600 text-sm">
-                    <a href="https://wa.me/2348025272827" target="_blank" rel="noopener noreferrer" className="hover:text-glow-purple">
+                  <h3 className="font-medium text-lg">WhatsApp</h3>
+                  <p className="text-gray-600">
+                    <a 
+                      href="https://wa.me/2348025272827" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-glow-purple transition-colors"
+                    >
                       +234 802 527 2827
                     </a>
                   </p>
                 </div>
               </div>
+              
+              <div className="mt-6 pt-6 border-t border-gray-200">
+                <p className="text-gray-700">
+                  We're dedicated to providing exceptional customer service. Feel free to reach out through any of the channels above, and we'll get back to you as soon as possible.
+                </p>
+              </div>
             </div>
           </div>
           
-          <div className="futuristic-card p-8">
+          <div className="futuristic-card p-8 h-full">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-gray-700">Name</Label>
@@ -203,6 +198,12 @@ const ContactSection = () => {
               >
                 {isSubmitting ? "Sending..." : isSuccess ? "Message Sent!" : "Send Message"}
               </Button>
+              
+              {isSuccess && (
+                <div className="p-3 bg-green-100 text-green-700 rounded-md text-center animate-fade-in">
+                  Your message has been sent successfully!
+                </div>
+              )}
             </form>
           </div>
         </div>
