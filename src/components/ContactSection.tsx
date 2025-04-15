@@ -39,15 +39,15 @@ const ContactSection = () => {
         description: "Thank you for contacting us. We'll respond to your inquiry soon.",
       });
       
+      // Create mailto link
+      const mailtoLink = `mailto:charlesaguchinemerem@gmail.com?subject=Contact from ${formState.name}&body=${formState.message}%0A%0AFrom: ${formState.email}`;
+      window.location.href = mailtoLink;
+      
       // Reset success state after 3 seconds
       setTimeout(() => {
         setIsSuccess(false);
       }, 3000);
     }, 1500);
-    
-    // In a real application, you would send an email to charlesaguchinemerem@gmail.com
-    // For example using a service like EmailJS or a backend API
-    // window.location.href = `mailto:charlesaguchinemerem@gmail.com?subject=Contact from ${formState.name}&body=${formState.message}`;
   };
   
   useEffect(() => {
