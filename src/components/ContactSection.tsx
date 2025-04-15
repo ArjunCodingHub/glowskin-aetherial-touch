@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MessageSquare } from "lucide-react";
 
 const ContactSection = () => {
@@ -92,120 +92,112 @@ const ContactSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div className="futuristic-card p-8 h-full">
-            <div className="space-y-8">
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <Clock className="h-6 w-6 text-glow-purple" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg">Support Hours</h3>
-                  <p className="text-gray-600">Monday - Friday: 9AM - 5PM</p>
-                </div>
+        <div className="futuristic-card p-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                <Clock className="h-6 w-6 text-glow-purple" />
               </div>
-              
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <Mail className="h-6 w-6 text-glow-purple" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg">Email Us</h3>
-                  <p className="text-gray-600">
-                    <a 
-                      href="mailto:charlesaguchinemerem@gmail.com" 
-                      className="hover:text-glow-purple transition-colors"
-                    >
-                      charlesaguchinemerem@gmail.com
-                    </a>
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-medium text-lg">Support Hours</h3>
+                <p className="text-gray-600">Monday - Friday: 9AM - 5PM</p>
               </div>
-              
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
-                  <MessageSquare className="h-6 w-6 text-glow-purple" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg">WhatsApp</h3>
-                  <p className="text-gray-600">
-                    <a 
-                      href="https://wa.me/2348025272827" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="hover:text-glow-purple transition-colors"
-                    >
-                      +234 802 527 2827
-                    </a>
-                  </p>
-                </div>
+            </div>
+            
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                <Mail className="h-6 w-6 text-glow-purple" />
               </div>
-              
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <p className="text-gray-700">
-                  We're dedicated to providing exceptional customer service. Feel free to reach out through any of the channels above, and we'll get back to you as soon as possible.
+              <div>
+                <h3 className="font-medium text-lg">Email Us</h3>
+                <p className="text-gray-600">
+                  <a 
+                    href="mailto:charlesaguchinemerem@gmail.com" 
+                    className="hover:text-glow-purple transition-colors"
+                  >
+                    charlesaguchinemerem@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-full bg-glow-purple/10 flex items-center justify-center mr-4">
+                <MessageSquare className="h-6 w-6 text-glow-purple" />
+              </div>
+              <div>
+                <h3 className="font-medium text-lg">WhatsApp</h3>
+                <p className="text-gray-600">
+                  <a 
+                    href="https://wa.me/2348025272827" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-glow-purple transition-colors"
+                  >
+                    +234 802 527 2827
+                  </a>
                 </p>
               </div>
             </div>
           </div>
+        </div>
           
-          <div className="futuristic-card p-8 h-full">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-gray-700">Name</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formState.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                  className="bg-white/50 border-gray-200 focus:border-glow-purple"
-                />
+        <div className="futuristic-card p-8 h-full">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-gray-700">Name</Label>
+              <Input
+                id="name"
+                name="name"
+                value={formState.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                required
+                className="bg-white/50 border-gray-200 focus:border-glow-purple"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gray-700">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+                placeholder="Your email address"
+                required
+                className="bg-white/50 border-gray-200 focus:border-glow-purple"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-gray-700">Message</Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formState.message}
+                onChange={handleChange}
+                placeholder="How can we help you?"
+                required
+                className="min-h-[150px] bg-white/50 border-gray-200 focus:border-glow-purple"
+              />
+            </div>
+            
+            <Button 
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 hover:shadow-lg transition-all duration-300 ${isSuccess ? 'bg-green-500' : ''}`}
+            >
+              {isSubmitting ? "Sending..." : isSuccess ? "Message Sent!" : "Send Message"}
+            </Button>
+            
+            {isSuccess && (
+              <div className="p-3 bg-green-100 text-green-700 rounded-md text-center animate-fade-in">
+                Your message has been sent successfully!
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-700">Email</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  placeholder="Your email address"
-                  required
-                  className="bg-white/50 border-gray-200 focus:border-glow-purple"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-gray-700">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formState.message}
-                  onChange={handleChange}
-                  placeholder="How can we help you?"
-                  required
-                  className="min-h-[150px] bg-white/50 border-gray-200 focus:border-glow-purple"
-                />
-              </div>
-              
-              <Button 
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-glow-purple to-glow-blue text-white border-0 hover:shadow-lg transition-all duration-300 ${isSuccess ? 'bg-green-500' : ''}`}
-              >
-                {isSubmitting ? "Sending..." : isSuccess ? "Message Sent!" : "Send Message"}
-              </Button>
-              
-              {isSuccess && (
-                <div className="p-3 bg-green-100 text-green-700 rounded-md text-center animate-fade-in">
-                  Your message has been sent successfully!
-                </div>
-              )}
-            </form>
-          </div>
+            )}
+          </form>
         </div>
       </div>
     </div>
